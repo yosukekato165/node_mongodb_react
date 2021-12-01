@@ -14,12 +14,15 @@ function App() {
     e.preventDefault();
     console.log("clicked");
     axios
-      .post(`http://localhost:3030`, {
-        name: name,
-        summary: summary,
-        bedrooms: bedrooms,
-        bathrooms: bathrooms,
-      })
+      .post(
+        `http://localhost:3030`,
+        JSON.stringify({
+          name: name,
+          summary: summary,
+          bedrooms: bedrooms,
+          bathrooms: bathrooms,
+        })
+      )
       .then((res) => {
         console.log("res");
         console.log(res.data);
