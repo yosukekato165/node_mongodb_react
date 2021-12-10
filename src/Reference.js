@@ -11,7 +11,6 @@ export const Reference = () => {
 
   const referenceData = (e) => {
     e.preventDefault();
-    console.log("clicked");
 
     axios
       .post(
