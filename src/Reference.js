@@ -11,19 +11,18 @@ export const Reference = () => {
 
   const referenceData = (e) => {
     e.preventDefault();
-
+    console.log({
+      name: referenceName,
+    });
     axios
-      .post(
-        `http://localhost:3030/reference`,
-        JSON.stringify({
-          name: referenceName,
-        })
-      )
+      .post(`http://localhost:3030/reference`, {
+        name: referenceName,
+      })
       .then((res) => {
-        setStoredName(res.name);
-        setStoredSummary(res.summary);
-        setStoredBedrooms(res.bedrooms);
-        setStoredBathrooms(res.bathrooms);
+        setStoredName(res.data.name);
+        setStoredSummary(res.data.summary);
+        setStoredBedrooms(res.data.bedrooms);
+        setStoredBathrooms(res.data.bathrooms);
       });
   };
   return (
